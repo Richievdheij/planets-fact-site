@@ -4,59 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <!-- Add Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Spartan:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <title>Frontend Mentor | Planets fact site</title>
+  <title>Frontend Mentor | Planets fact site | Jupiter</title>
 </head>
 <body>
   
-  Jupiter
+  <header>
+    <div class="title">THE PLANETS</div>
+    <div class="planets">
+      <a href="index.html">Mercury</a>
+      <a href="venus.html">Venus</a>
+      <a href="earth.html">Earth</a>
+      <a href="mars.html">Mars</a>
+      <a href="jupiter.html">Jupiter</a>
+      <a href="saturn.html">Saturn</a>
+      <a href="uranus.html">Uranus</a>
+      <a href="neptune.html">Neptune</a>
+    </div>
+  </header>
 
-  <!-- Overview Content Start -->
+  <main>
+    <div class="planet-container">
+      <div class="planet-content">
+        <div id="planet-image"></div>
+      </div>
+      <div class="planet-info">
+        <h2 id="planet-name"></h2>
+        <p id="planet-description"></p>
 
-  Jupiter is the fifth planet from the Sun and the largest in the Solar System. 
-  It is a gas giant with a mass two and a half times that of all the other 
-  planets in the Solar System combined, but less than one-thousandth the mass 
-  of the Sun.
+        <div class="wikipedia-link">
+          <a id="planet-source" href="" target="_blank">Source : <span>Wikipedia</span></a>
+        </div>
 
-  Source : Wikipedia <!-- URL: https://en.wikipedia.org/wiki/Jupiter -->
+        <div class="tabs">
+          <div class="tab-button">
+            <button data-tab="overview" class="tab active">Overview</button>
+          </div>
+          <div class="tab-button">
+            <button data-tab="structure" class="tab">Internal Structure</button>
+          </div>
+          <div class="tab-button">
+            <button data-tab="geology" class="tab">Surface Geology</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="planet-stats">
+      <div class="stat">
+        <span>Rotation Time</span>
+        <span id="rotation-time"></span>
+      </div>
+      <div class="stat">
+        <span>Revolution Time</span>
+        <span id="revolution-time"></span>
+      </div>
+      <div class="stat">
+        <span>Radius</span>
+        <span id="radius"></span>
+      </div>
+      <div class="stat">
+        <span>Average Temp.</span>
+        <span id="temperature"></span>
+      </div>
+    </div>
+  </main>
 
-  <!-- Overview Content End -->
-
-  <!-- Internal Structure Content Start -->
-
-  When the Juno arrived in 2016, it found that Jupiter has a very diffuse core 
-  that mixes into its mantle. A possible cause is an impact from a planet of 
-  about ten Earth masses a few million years after Jupiter's formation, which 
-  would have disrupted an originally solid Jovian core.
-
-  Source : Wikipedia <!-- URL: https://en.wikipedia.org/wiki/Jupiter#Internal_structure -->
-
-  <!-- Internal Structure Content End -->
-
-  <!-- Surface Geology Content Start -->
-
-  The best known feature of Jupiter is the Great Red Spot, a persistent 
-  anticyclonic storm located 22° south of the equator. It is known to have 
-  existed since at least 1831, and possibly since 1665.
-
-  Source : Wikipedia <!-- URL: https://en.wikipedia.org/wiki/Jupiter#Great_Red_Spot_and_other_vortices -->
-
-  <!-- Surface Geology Content End -->
-
-  01 Overview
-  02 Internal Structure
-  03 Surface Geology
-
-  Rotation Time
-  9.93 Hours
-
-  Revolution Time
-  11.86 Years
-
-  Radius
-  69,911 KM
-
-  Average Temp.
-  -108°c
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

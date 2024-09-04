@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const planetName = 'Mercury'; // You can dynamically set this for different planets
+    const planetName = 'Mercury';
     const planetData = planetsData.find(planet => planet.name === planetName);
   
     document.getElementById('planet-name').textContent = planetData.name;
