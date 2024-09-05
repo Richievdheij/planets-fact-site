@@ -8,46 +8,55 @@
   <!-- Add Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Spartan:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <title>Frontend Mentor | Planets fact site | Saturn</title>
+  <title>Frontend Mentor | Planets Fact Site | Saturn</title>
 </head>
 <body>
   
   <header>
     <div class="title">THE PLANETS</div>
-    <div class="planets">
-      <a href="index.html">Mercury</a>
-      <a href="venus.html">Venus</a>
-      <a href="earth.html">Earth</a>
-      <a href="mars.html">Mars</a>
-      <a href="jupiter.html">Jupiter</a>
-      <a href="saturn.html">Saturn</a>
-      <a href="uranus.html">Uranus</a>
-      <a href="neptune.html">Neptune</a>
-    </div>
+    <nav class="planets">
+      <a href="index.html" class="mercury">Mercury</a>
+      <a href="venus.html" class="venus">Venus</a>
+      <a href="earth.html" class="earth">Earth</a>
+      <a href="mars.html" class="mars">Mars</a>
+      <a href="jupiter.html" class="jupiter">Jupiter</a>
+      <a href="saturn.html" class="saturn">Saturn</a>
+      <a href="uranus.html" class="uranus">Uranus</a>
+      <a href="neptune.html" class="neptune">Neptune</a>
+    </nav>
   </header>
 
   <main>
     <div class="planet-container">
       <div class="planet-content">
-      <div id="planet-image"></div>
+        <div id="planet-image"></div>
       </div>
       <div class="planet-info">
-        <h2 id="planet-name"></h2>
+        <h1 id="planet-name"></h1>
         <p id="planet-description"></p>
 
         <div class="wikipedia-link">
-        <a id="planet-source" href="" target="_blank">Source : <span>Wikipedia</span></a>
+          <a id="planet-source" href="" target="_blank">Source: <span>Wikipedia</span></a>
         </div>
-
+        
         <div class="tabs">
           <div class="tab-button">
-          <button data-tab="overview" class="tab active">Overview</button>
+            <button data-tab="overview" class="tab active">
+              <div class="tab-number">01</div>
+              <div class="tab-text">Overview</div>
+            </button>
           </div>
           <div class="tab-button">
-          <button data-tab="structure" class="tab">Internal Structure</button>
+            <button data-tab="structure" class="tab">
+              <div class="tab-number">02</div>
+              <div class="tab-text">Internal Structure</div>
+            </button>
           </div>
           <div class="tab-button">
-          <button data-tab="geology" class="tab">Surface Geology</button>
+            <button data-tab="geology" class="tab">
+              <div class="tab-number">03</div>
+              <div class="tab-text">Surface Geology</div>
+            </button>
           </div>
         </div>
       </div>

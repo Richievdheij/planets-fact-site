@@ -52,24 +52,62 @@ header .title {
     font-weight: bold;
 }
 
-header .planets {
+nav.planets {
     display: flex;
     gap: 15px;
     text-transform: uppercase;
 }
 
-header .planets a {
+nav.planets a {
     opacity: 75%;
     color: #fff;
     font-size: 11px;
     font-family: 'Spartan', sans-serif;
     font-weight: bold;
     padding: 10px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-header .planets a:hover {
-    color: #419EBB;
+nav.planets a:hover {
+    color: #ffffff;
+    opacity: 100%;
+}
+
+nav.planets a::before {
+    content: '';
+    position: absolute;
+    top: -22px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+nav.planets a.mercury:hover::before {
+    background-color: #419EBB;
+}
+nav.planets a.venus:hover::before {
+    background-color: #EDA249;
+}
+nav.planets a.earth:hover::before {
+    background-color: #6f2ed6;
+}
+nav.planets a.mars:hover::before {
+    background-color: #D14C32;
+}
+nav.planets a.jupiter:hover::before {
+    background-color: #D83A34;
+}
+nav.planets a.saturn:hover::before {
+    background-color: #CD5120;
+}
+nav.planets a.uranus:hover::before {
+    background-color: #1EC2A4;
+}
+nav.planets a.neptune:hover::before {
+    background-color: #2D68F0;
 }
 
 /* Main Content Styles */
@@ -104,18 +142,19 @@ header .planets a:hover {
     flex-grow: 1;
 }
 
-h2 {
+h1 {
     font-family: 'Antonio', sans-serif;
+    font-weight: 500;
     font-size: 80px;
     margin: 0;
     text-transform: uppercase;
-    font-weight: lighter;
+    line-height: 103px;
 }
 
 p, #planet-source {
     font-family: 'Spartan', sans-serif;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 25px;
     margin-bottom:30px;
 }
 
@@ -138,7 +177,6 @@ p, #planet-source {
     width: 255px;
     height: 128px;
     border: 1px solid #d8d8d833;
-    flex-grow: 1;
 }
 
 .stat span {
@@ -150,15 +188,16 @@ p, #planet-source {
 
 .stat span:first-child {
     font-family: 'Spartan', sans-serif;
-    font-size: 14px;
+    font-size: 11px;
     color: #aaa;
 }
 
 .stat span:last-child {
     font-family: 'Antonio', sans-serif;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
 }
+
 
 /* Tabs Styles */
 .tabs {
@@ -182,25 +221,52 @@ p, #planet-source {
     width: 100%;
     font-weight: bold;
     letter-spacing: 2px;
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
+.tab-number {
+    font-family: 'Spartan', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff80;
+    margin-right: 30px;
+    margin-left: 25px;
+}
+.tab-text {
+    font-family: 'Spartan', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff; /* Default color for tab text */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 .tab-button {
     border: 1px solid #d8d8d833;
     width: 100%;
     height: 48px;
     display: flex;
     align-items: center;
-    justify-content: center;
     transition: 0.3s;
+    justify-content: flex-start;
 }
 
-.tab-button:hover {
+/* Updated tab styles for active and hover states */
+.tab-button.active {
     background-color: #419EBB;
 }
 
-.tab.active {
-    color: #fff;
+.tab-button.active , .tab-button.active {
+    color: #ffffff33;
+}
+
+.tab-button:hover {
+    background-color: #d8d8d82a; 
+}
+
+.tab-number {
+    color: #ffffff80;
 }
 
 /* Responsive Adjustments */
@@ -216,7 +282,7 @@ p, #planet-source {
         padding-bottom: 10px;
     }
 
-    header .planets {
+    nav.planets {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;

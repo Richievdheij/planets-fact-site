@@ -1,39 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const planetName = 'Mercury';
-    const planetData = planetsData.find(planet => planet.name === planetName);
-  
-    document.getElementById('planet-name').textContent = planetData.name;
-    document.getElementById('planet-description').textContent = planetData.overview.content;
-    document.getElementById('planet-source').href = planetData.overview.source;
-  
-    document.getElementById('rotation-time').textContent = planetData.rotation;
-    document.getElementById('revolution-time').textContent = planetData.revolution;
-    document.getElementById('radius').textContent = planetData.radius;
-    document.getElementById('temperature').textContent = planetData.temperature;
-  
-    document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.planet})`;
-  
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelector('.tab.active').classList.remove('active');
-        tab.classList.add('active');
-  
-        const selectedTab = tab.dataset.tab;
-        if (selectedTab === 'overview') {
-          document.getElementById('planet-description').textContent = planetData.overview.content;
-          document.getElementById('planet-source').href = planetData.overview.source;
-          document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.planet})`;
-        } else if (selectedTab === 'structure') {
-          document.getElementById('planet-description').textContent = planetData.structure.content;
-          document.getElementById('planet-source').href = planetData.structure.source;
-          document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.internal})`;
-        } else if (selectedTab === 'geology') {
-          document.getElementById('planet-description').textContent = planetData.geology.content;
-          document.getElementById('planet-source').href = planetData.geology.source;
-          document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.geology})`;
-        }
-      });
+  const planetName = 'Mercury';
+  const planetData = planetsData.find(planet => planet.name === planetName);
+
+  // Set initial content for the default planet (Mercury) and the 'Overview' tab
+  document.getElementById('planet-name').textContent = planetData.name;
+  document.getElementById('planet-description').textContent = planetData.overview.content;
+  document.getElementById('planet-source').href = planetData.overview.source;
+  document.getElementById('rotation-time').textContent = planetData.rotation;
+  document.getElementById('revolution-time').textContent = planetData.revolution;
+  document.getElementById('radius').textContent = planetData.radius;
+  document.getElementById('temperature').textContent = planetData.temperature;
+  document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.planet})`;
+
+  // Set active class to the first tab by default
+  const firstTab = document.querySelector('.tab[data-tab="overview"]');
+  firstTab.closest('.tab-button').classList.add('active');
+
+  // Add event listeners for each tab
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from the currently active tab
+      const activeTab = document.querySelector('.tab-button.active');
+      if (activeTab) {
+        activeTab.classList.remove('active');
+      }
+
+      // Add active class to the clicked tab
+      tab.closest('.tab-button').classList.add('active');
+
+      // Change content based on the selected tab
+      const selectedTab = tab.dataset.tab;
+      if (selectedTab === 'overview') {
+        document.getElementById('planet-description').textContent = planetData.overview.content;
+        document.getElementById('planet-source').href = planetData.overview.source;
+        document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.planet})`;
+      } else if (selectedTab === 'structure') {
+        document.getElementById('planet-description').textContent = planetData.structure.content;
+        document.getElementById('planet-source').href = planetData.structure.source;
+        document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.internal})`;
+      } else if (selectedTab === 'geology') {
+        document.getElementById('planet-description').textContent = planetData.geology.content;
+        document.getElementById('planet-source').href = planetData.geology.source;
+        document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.geology})`;
+      }
     });
   });
-  
+});
