@@ -9,7 +9,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    overflow-x: hidden;
+   overflow-x: hidden;
 }
 
 a {
@@ -26,11 +26,16 @@ a:hover {
 main {
     max-width: 1110px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px; /* Remove excessive vertical padding */
     width: 100%;
     box-sizing: border-box;
-    height: calc(100vh - 144px);
+    height: calc(90vh - 30px); /* Use the remaining height below the header */
+    padding-top: 10vh; /* To account for the fixed header */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 
 /* Header Styles */
 header {
@@ -67,6 +72,7 @@ nav.planets a {
     padding: 10px;
     transition: all 0.3s ease;
     position: relative;
+    cursor: pointer;
 }
 
 nav.planets a:hover {
@@ -106,7 +112,7 @@ nav.planets a.saturn:hover::before {
 nav.planets a.uranus:hover::before {
     background-color: #1EC2A4;
 }
-nav.planets a.neptune:hover::before {
+nav.planets .neptune:hover::before {
     background-color: #2D68F0;
 }
 
@@ -117,7 +123,7 @@ nav.planets a.neptune:hover::before {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
-    height: 100%;
+    height: 65%; /* Ensure it doesn't take too much space */
 }
 
 .planet-content {
@@ -187,9 +193,11 @@ p, #planet-source {
 }
 
 .stat span:first-child {
+    display: flex;
     font-family: 'Spartan', sans-serif;
     font-size: 11px;
     color: #aaa;
+    margin: 0 40px;
 }
 
 .stat span:last-child {
@@ -291,6 +299,7 @@ p, #planet-source {
     .planet-container {
         flex-direction: column;
         align-items: center;
+        height: auto;
     }
 
     .planet-info {
