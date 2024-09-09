@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
 
-  <!-- Add Google Fonts -->
+  <!-- Load Google Fonts (Antonio and Spartan) -->
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Link to external stylesheet -->
   <link rel="stylesheet" href="styles.css">
   <title>Frontend Mentor | Planets Fact Site | Mercury</title>
 </head>
@@ -15,6 +17,7 @@
   <header>
     <div class="title">THE PLANETS</div>
     <nav class="planets">
+      <!-- Planet navigation buttons, 'data-planet' attributes are used for dynamic content switching -->
       <a class="planet-button mercury" data-planet="Mercury">Mercury</a>
       <a class="planet-button venus" data-planet="Venus">Venus</a>
       <a class="planet-button earth" data-planet="Earth">Earth</a>
@@ -24,21 +27,34 @@
       <a class="planet-button uranus" data-planet="Uranus">Uranus</a>
       <a class="planet-button neptune" data-planet="Neptune">Neptune</a>
     </nav>
+
+    <!-- Hamburger menu for mobile view -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <img src="assets/icon-hamburger.svg" alt="Menu Icon">
+    </div>
   </header>
 
   <main>
     <div class="planet-container">
       <div class="planet-content">
+        <!-- Dynamic planet image -->
         <div id="planet-image"></div>
       </div>
+      
       <div class="planet-info">
+        <!-- Dynamic content for planet name and description -->
         <h1 id="planet-name"></h1>
         <p id="planet-description"></p>
 
-        <div class="wikipedia-link">
-          <a id="planet-source" href="" target="_blank">Source: <span>Wikipedia</span></a>
-        </div>
+        <!-- Wikipedia source link for more information on the planet -->
+        <div class="wikipedia">
+          <a id="planet-source" href="" target="_blank">
+            Source : <span class="wikipedia-link">Wikipedia</span>
+            <img src="assets/icon-source.svg" alt="Source Icon" />
+          </a>
+        </div>        
         
+        <!-- Tab buttons to switch between Overview, Internal Structure, and Surface Geology -->
         <div class="tabs">
           <div class="tab-button">
             <button data-tab="overview" class="tab active">
@@ -62,6 +78,7 @@
       </div>
     </div>
     
+    <!-- displaying planet statistics -->
     <div class="planet-stats">
       <div class="stat">
         <span>Rotation Time</span>
@@ -84,5 +101,6 @@
 
   <script src="data.js"></script>
   <script src="app.js"></script>
+
 </body>
 </html>

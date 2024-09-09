@@ -24,27 +24,38 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('radius').textContent = planetData.radius;
     document.getElementById('temperature').textContent = planetData.temperature;
     document.getElementById('planet-image').style.backgroundImage = `url(${planetData.images.planet})`;
+
+    // Remove any existing geology overlay when switching planets
+    const existingOverlay = document.querySelector('.geology-overlay');
+    if (existingOverlay) {
+      existingOverlay.remove();
+    }
   };
 
   // Initialize the page with the default planet (Mercury)
   updatePlanetData(currentPlanet);
 
   // Set active class to the first tab by default
-  const firstTab = document.querySelector('.tab[data-tab="overview"]');
-  firstTab.closest('.tab-button').classList.add('active');
+  const setActiveTab = (tabName) => {
+    // Remove active class from all tabs
+    document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+
+    // Add active class to the specified tab
+    const activeTab = document.querySelector(`.tab[data-tab="${tabName}"]`);
+    if (activeTab) {
+      activeTab.closest('.tab-button').classList.add('active');
+    }
+  };
+
+  // Set default active tab to 'overview'
+  setActiveTab('overview');
 
   // Event listener for tab switching
   const tabs = document.querySelectorAll('.tab');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Remove active class from the currently active tab
-      const activeTab = document.querySelector('.tab-button.active');
-      if (activeTab) {
-        activeTab.classList.remove('active');
-      }
-
-      // Add active class to the clicked tab
-      tab.closest('.tab-button').classList.add('active');
+      // Set the active tab
+      setActiveTab(tab.dataset.tab);
 
       // Change content based on the selected tab
       const selectedTab = tab.dataset.tab;
@@ -52,14 +63,45 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('planet-description').textContent = currentPlanet.overview.content;
         document.getElementById('planet-source').href = currentPlanet.overview.source;
         document.getElementById('planet-image').style.backgroundImage = `url(${currentPlanet.images.planet})`;
+
+        // Remove any existing geology overlay
+        const existingOverlay = document.querySelector('.geology-overlay');
+        if (existingOverlay) {
+          existingOverlay.remove();
+        }
+
       } else if (selectedTab === 'structure') {
         document.getElementById('planet-description').textContent = currentPlanet.structure.content;
         document.getElementById('planet-source').href = currentPlanet.structure.source;
         document.getElementById('planet-image').style.backgroundImage = `url(${currentPlanet.images.internal})`;
+
+        // Remove any existing geology overlay
+        const existingOverlay = document.querySelector('.geology-overlay');
+        if (existingOverlay) {
+          existingOverlay.remove();
+        }
+
       } else if (selectedTab === 'geology') {
+        // Update the description and source as before
         document.getElementById('planet-description').textContent = currentPlanet.geology.content;
         document.getElementById('planet-source').href = currentPlanet.geology.source;
-        document.getElementById('planet-image').style.backgroundImage = `url(${currentPlanet.images.geology})`;
+
+        // Set the planet image in the background
+        document.getElementById('planet-image').style.backgroundImage = `url(${currentPlanet.images.planet})`;
+
+        // Create a geology image overlay
+        const geologyImage = document.createElement('div');
+        geologyImage.classList.add('geology-overlay');
+        geologyImage.style.backgroundImage = `url(${currentPlanet.images.geology})`;
+
+        // Remove any existing geology overlay if present
+        const existingOverlay = document.querySelector('.geology-overlay');
+        if (existingOverlay) {
+          existingOverlay.remove();
+        }
+
+        // Append the geology image on top of the planet image
+        document.getElementById('planet-image').appendChild(geologyImage);
       }
     });
   });
@@ -71,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const planetName = button.dataset.planet; // Use data attributes for buttons
       currentPlanet = planetsData.find(planet => planet.name === planetName);
       updatePlanetData(currentPlanet);
+
+      // Set default active tab to 'overview' when switching planets
+      setActiveTab('overview');
     });
   });
 });
