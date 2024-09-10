@@ -30,6 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (existingOverlay) {
       existingOverlay.remove();
     }
+
+    // Highlight the active planet button
+    updateActivePlanet(planetData.name);
+  };
+
+  // Function to update the active planet button
+  const updateActivePlanet = (planetName) => {
+    const planetButtons = document.querySelectorAll('.planet-button');
+    planetButtons.forEach(button => {
+      // Remove the active class from all buttons
+      button.classList.remove('active');
+  
+      // Add the active class to the current planet button
+      if (button.dataset.planet === planetName) {
+        button.classList.add('active');
+      }
+    });
   };
 
   // Initialize the page with the default planet (Mercury)
@@ -106,11 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Event listener for planet switching (you can create buttons for each planet)
-  const planetButtons = document.querySelectorAll('.planet-button'); // Assume you have planet buttons
+  // Event listener for planet switching
+  const planetButtons = document.querySelectorAll('.planet-button');
   planetButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const planetName = button.dataset.planet; // Use data attributes for buttons
+      const planetName = button.dataset.planet;
       currentPlanet = planetsData.find(planet => planet.name === planetName);
       updatePlanetData(currentPlanet);
 
