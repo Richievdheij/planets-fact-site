@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeTab) {
       activeTab.closest('.tab-button').classList.add('active');
     }
-  };
+  }; 
 
   // Set default active tab to 'overview'
   setActiveTab('overview');

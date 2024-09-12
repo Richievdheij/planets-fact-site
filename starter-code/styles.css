@@ -24,13 +24,12 @@ main {
     padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
-    height: calc(90vh - 30px); 
+    height: calc(90vh - 30px);
     padding-top: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
 
 /* Header Styles */
 header {
@@ -70,55 +69,43 @@ nav.planets a {
     cursor: pointer;
 }
 
-nav.planets a:active {
-    opacity: 75%;
-    color: #fff;
-    font-size: 11px;
-    font-family: 'Spartan', sans-serif;
-    font-weight: bold;
-    padding: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-    cursor: pointer;
-}
 nav.planets a.active {
-    color: #ffffff;
     opacity: 100%;
-  }
-  
+}
+
 /* Active state styles for planets */
 nav.planets a.mercury.active::before {
     background-color: #419EBB;
-  }
-  
-  nav.planets a.venus.active::before {
+}
+
+nav.planets a.venus.active::before {
     background-color: #EDA249;
-  }
-  
-  nav.planets a.earth.active::before {
+}
+
+nav.planets a.earth.active::before {
     background-color: #6f2ed6;
-  }
-  
-  nav.planets a.mars.active::before {
+}
+
+nav.planets a.mars.active::before {
     background-color: #D14C32;
-  }
-  
-  nav.planets a.jupiter.active::before {
+}
+
+nav.planets a.jupiter.active::before {
     background-color: #D83A34;
-  }
-  
-  nav.planets a.saturn.active::before {
+}
+
+nav.planets a.saturn.active::before {
     background-color: #CD5120;
-  }
-  
-  nav.planets a.uranus.active::before {
+}
+
+nav.planets a.uranus.active::before {
     background-color: #1EC2A4;
-  }
-  
-  nav.planets a.neptune.active::before {
+}
+
+nav.planets a.neptune.active::before {
     background-color: #2D68F0;
-  }
-  
+}
+
 nav.planets a:hover {
     color: #ffffff;
     opacity: 100%;
@@ -133,31 +120,6 @@ nav.planets a::before {
     height: 5px;
     background-color: transparent;
     transition: background-color 0.3s ease;
-}
-
-nav.planets a.mercury:hover::before {
-    background-color: #419EBB;
-}
-nav.planets a.venus:hover::before {
-    background-color: #EDA249;
-}
-nav.planets a.earth:hover::before {
-    background-color: #6f2ed6;
-}
-nav.planets a.mars:hover::before {
-    background-color: #D14C32;
-}
-nav.planets a.jupiter:hover::before {
-    background-color: #D83A34;
-}
-nav.planets a.saturn:hover::before {
-    background-color: #CD5120;
-}
-nav.planets a.uranus:hover::before {
-    background-color: #1EC2A4;
-}
-nav.planets .neptune:hover::before {
-    background-color: #2D68F0;
 }
 
 .hamburger-menu {
@@ -192,7 +154,6 @@ h1 {
     font-size: 80px;
     margin: 0;
     text-transform: uppercase;
-    line-height: 103px;
 }
 
 p, #planet-source {
@@ -206,6 +167,7 @@ p, #planet-source {
     opacity: 50%;
     transition: 0.3s;
 }
+
 .wikipedia-link {
     text-decoration-line: underline;
     font-weight: bold;
@@ -220,7 +182,6 @@ p, #planet-source {
 .planet-stats {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
     max-width: 1110px;
     width: 100%;
     margin: 0 auto;
@@ -291,6 +252,7 @@ p, #planet-source {
     margin-right: 30px;
     margin-left: 25px;
 }
+
 .tab-text {
     font-family: 'Spartan', sans-serif;
     font-size: 12px;
@@ -299,6 +261,7 @@ p, #planet-source {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 .tab-button {
     border: 1px solid #d8d8d833;
     width: 100%;
@@ -309,31 +272,23 @@ p, #planet-source {
     justify-content: flex-start;
 }
 
-/* Updated tab styles for active and hover states */
 .tab-button.active {
     background-color: #419EBB;
 }
 
-.tab-button.active , .tab-button.active {
-    color: #ffffff33;
-}
-
 .tab-button:hover {
-    background-color: #d8d8d82a; 
+    background-color: #d8d8d82a;
 }
 
-.tab-number {
-    color: #ffffff80;
-}
 #planet-image {
     position: relative;
     background-size: cover;
     background-position: center;
     width: 300px;
     height: 300px;
-  }
-  
-  .geology-overlay {
+}
+
+.geology-overlay {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -343,11 +298,9 @@ p, #planet-source {
     background-size: cover;
     background-position: center;
     top: 240px;
-  }
-  
+}
 
 /* Responsive Adjustments */
-/* Tablet */
 /* Tablet */
 @media (max-width: 768px) {
     /* Header Adjustments */
@@ -357,27 +310,30 @@ p, #planet-source {
         text-align: center;
         padding: 20px;
     }
-  
+
+    .hamburger-menu {
+        display: none;
+    }
+
     header .title {
         font-size: 24px;
         margin-bottom: 10px;
     }
-  
+
     nav.planets {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
-  
+
     nav.planets a {
         font-size: 10px;
-        padding: 5px;
     }
-  
+
     nav.planets a::before {
-        top: 38px;
+        top: 48px;
     }
-  
+
     /* Main Layout Adjustments */
     main {
         display: flex;
@@ -387,181 +343,169 @@ p, #planet-source {
         height: auto;
         padding-top: 20px;
     }
-  
+
     .planet-container {
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
-  
+
     #planet-image {
         width: 250px;
         height: 250px;
         margin-bottom: 20px;
     }
-  
+
     .planet-info {
         max-width: 90%;
         margin: 0 auto;
     }
-  
+
     h1 {
-        font-size: 50px;
-        line-height: 60px;
+        font-size: 48px;
     }
-  
+
     p {
-        font-size: 14px;
+        font-size: 11px;
+        max-width: 50%;
     }
-  
+
     .tabs {
         width: 100%;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         max-width: 100%;
     }
-  
-    .tab-button {
-        height: auto;
-        padding: 10px;
-    }
-  
-    .tab {
-        font-size: 12px;
-    }
-  
+
     /* Stats Section Adjustments */
     .planet-stats {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
-        width: 100%;
+        width: 90%;
         margin-top: 20px;
     }
-  
+
     .stat {
         width: 100%;
         text-align: center;
     }
-  
+
     .stat span:first-child {
-        font-size: 10px;
+        font-size: 8px;
     }
-  
+
     .stat span:last-child {
-        font-size: 30px;
+        font-size: 24px;
     }
-  
-    /* Adjusting Wikipedia link */
-    .wikipedia {
-        text-align: center;
-    }
-  
+
     /* Adjustments for the Geology Image */
     .geology-overlay {
         width: 120px;
         height: 150px;
         top: 220px;
     }
-    .hamburger-menu {
-        display: none;
+
+    #planet-source {
+        font-size: 12px;
     }
-  }
-  
+}
+
 /* Mobile */
 @media (max-width: 425px) {
-    /* Update header layout for smaller mobile screens */
     header {
         flex-direction: row;
-        align-items: center;
-        height: auto;
-        display: flex;
+        padding: 15px;
     }
 
-    /* Planet title */
     header .title {
-        font-size: 28px; /* Slightly smaller title */
+        font-size: 28px;
         letter-spacing: 1.05px;
+        margin-bottom: 5px;
     }
 
-    /* Planet navigation - hidden on mobile */
-    nav.planets {
-        display: none; /* Hidden on small mobile screens */
-    }
-
-    /* Hamburger menu visible on small screens */
     .hamburger-menu {
         display: block;
     }
 
-    /* Main container adjustments */
+    nav.planets {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        display: none;
+    }
+
+    nav.planets a {
+        font-size: 8px;
+        padding: 5px;
+    }
+
+    main {
+        padding-top: 20px;
+        height: auto;
+    }
+
     .planet-container {
         flex-direction: column;
-        align-items: center;
-        text-align: center; /* Center everything */
+        text-align: center;
     }
 
-    /* Planet image adjustments for smaller screens */
     #planet-image {
-        width: 120px; /* Smaller image */
-        height: 120px;
-        margin-bottom: 15px; /* Spacing between image and text */
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
     }
 
-    /* Planet info (name, description) */
     h1 {
-        font-size: 32px; /* Slightly smaller heading */
-        line-height: 1.1; /* Compact line height */
+        font-size: 40px;
     }
 
-    p, #planet-source {
-        font-size: 10px; /* Smaller font for description */
-        margin-bottom: 10px;
+    p {
+        font-size: 11px;
+        max-width: 100%;
     }
 
-    /* Wikipedia icon smaller */
-    .wikipedia img {
-        width: 8px;
-        height: 8px;
-    }
-
-    /* Tab buttons adjustments */
     .tabs {
+        width: 100%;
         flex-direction: column;
-        width: 100%; /* Full width tabs on small screens */
-        margin-top: 15px;
+        gap: 10px;
     }
 
-    .tab-button {
-        width: 100%; /* Tabs take full width */
-        height: 45px; /* Adjusted height */
-        display: flex;
-        justify-content: center;
+    .tab {
+        font-size: 10px;
     }
 
     .tab-number {
-        margin-left: 0; /* No margin for tab number */
+        margin-right: 10px;
+        margin-left: 15px;
     }
 
-    /* Stats Section */
+    /* Stats Section Adjustments */
     .planet-stats {
         flex-direction: column;
-        gap: 8px; /* Reduced gap between stats */
-        align-items: center;
-        margin-top: 15px;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .planet-info {
+        max-width: 100%;
+    }
+
+    #planet-source {
+        font-size: 12px;
     }
 
     .stat {
         width: 100%;
-        height: 90px; /* Adjusted stat box height */
         text-align: center;
     }
 
-    .stat span:first-child {
-        font-size: 9px;
+    .stat span:last-child {
+        font-size: 25px;
     }
 
-    .stat span:last-child {
-        font-size: 22px; /* Slightly smaller stat text */
+    /* Geology Image Adjustments */
+    .geology-overlay {
+        width: 100px;
+        height: 130px;
+        top: 190px;
     }
 }
